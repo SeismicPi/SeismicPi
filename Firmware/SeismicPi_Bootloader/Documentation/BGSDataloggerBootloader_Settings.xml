@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PE_PROJECT_SETTINGS_DOCUMENTATION>
+  <PE_product_version v="version 10.5 for Freescale Microcontrollers" />
+  <PE_core_version v="Processor Expert Version 0521" />
+  <CPU_Bean name="Cpu" type="MK22FN128LH10">
+    <Enabled v="Y" />
+    <Properties>
+      <Component_name v="Cpu" />
+      <CPU_type v="MK22FN128VLH10" />
+      <group name="Low power mode settings">
+        <EmptySection_DummyValue />
+      </group>
+      <group name="Common settings">
+        <Initialization_priority v="minimal priority" />
+        <Watchdog_disable v="yes" />
+        <Utilize_after_reset_values v="default" />
+      </group>
+    </Properties>
+    <Methods>
+      <EmptySection_DummyValue />
+    </Methods>
+    <Events>
+      <Event_module_name v="Events" />
+    </Events>
+    <Compiler v="GNU C Compiler" />
+    <CompilerProperties>
+      <Compiler v="GNU C Compiler" />
+      <enumgroup name="Unhandled vectors" v="One handler for all">
+        <EmptySection_DummyValue />
+      </enumgroup>
+      <boolgroup name="Generate debugger files" v="no" />
+      <group name="Startup">
+        <Add_startup_file v="yes" />
+      </group>
+      <boolgroup name="Generate linker file" v="yes">
+        <Stack_size v="1024" />
+        <Heap_size v="0" />
+        <Set_memory_segments_to_default v="Click to set default &amp;gt;" />
+        <Default_memory_for_interrupts v="INTERNAL FLASH" />
+        <Default_memory_for_code v="INTERNAL FLASH" />
+        <Default_memory_for_data v="INTERNAL RAM" />
+        <list name="ROM/RAM Areas" v="5">
+          <group name="MemoryArea0">
+            <boolgroup name="ROM/RAM Area" v="Enabled">
+              <Name v="m_interrupts" />
+              <Qualifier v="RX" />
+              <Address v="0" />
+              <Size v="408" />
+            </boolgroup>
+          </group>
+          <group name="MemoryArea1">
+            <boolgroup name="ROM/RAM Area" v="Disabled" />
+          </group>
+          <group name="MemoryArea2">
+            <boolgroup name="ROM/RAM Area" v="Enabled">
+              <Name v="m_text" />
+              <Qualifier v="RX" />
+              <Address v="1040" />
+              <Size v="130032" />
+            </boolgroup>
+          </group>
+          <group name="MemoryArea3">
+            <boolgroup name="ROM/RAM Area" v="Enabled">
+              <Name v="m_data_1FFFE000" />
+              <Qualifier v="RW" />
+              <Address v="536862720" />
+              <Size v="8192" />
+            </boolgroup>
+          </group>
+          <group name="MemoryArea4">
+            <boolgroup name="ROM/RAM Area" v="Enabled">
+              <Name v="m_data" />
+              <Qualifier v="RW" />
+              <Address v="536870912" />
+              <Size v="16384" />
+            </boolgroup>
+          </group>
+        </list>
+      </boolgroup>
+    </CompilerProperties>
+  </CPU_Bean>
+  <Bean name="pin_mux" type="PinSettings">
+    <Enabled v="Y" />
+    <Properties>
+      <Component_name v="pin_mux" />
+      <PinSettings_IP_Block v="PinSettings" />
+      <Processor v="MK22FN128LH10" />
+    </Properties>
+    <Methods>
+      <EmptySection_DummyValue />
+    </Methods>
+    <Events>
+      <EmptySection_DummyValue />
+    </Events>
+  </Bean>
+  <Bean name="SPI_SD" type="SPIMaster_LDD">
+    <Enabled v="Y" />
+    <Properties>
+      <Component_name v="SPI_SD" />
+      <Device v="SPI1" />
+      <boolgroup name="Interrupt service/event" v="Enabled">
+        <Input_interrupt v="INT_SPI1" />
+        <Input_interrupt_priority v="medium priority" />
+        <Output_interrupt v="INT_SPI1" />
+        <Output_interrupt_priority v="medium priority" />
+      </boolgroup>
+      <group name="Settings">
+        <boolgroup name="Input pin" v="Enabled">
+          <Pin v="J6_7" />
+        </boolgroup>
+        <boolgroup name="Output pin" v="Enabled">
+          <Pin v="ADC0_SE7b/PTD6/LLWU_P15/SPI0_PCS3/UART0_RX/FTM0_CH6/FTM0_FLT0/SPI1_SOUT" />
+        </boolgroup>
+        <group name="Clock pin">
+          <Pin v="ADC0_SE6b/PTD5/SPI0_PCS2/UART0_CTS_b/FTM0_CH5/EWM_OUT_b/SPI1_SCK" />
+        </group>
+        <list name="Chip select list" v="0">
+          <EmptySection_DummyValue />
+        </list>
+        <boolgroup name="CS external demultiplexer" v="Disabled" />
+        <list name="Attribute set list" v="2">
+          <group name="Attribute set 0">
+            <Width v="8 bits" />
+            <MSB_first v="yes" />
+            <Clock_polarity v="Low" />
+            <Clock_phase v="Capture on leading edge" />
+            <Parity v="None" />
+            <Chip_select_toggling v="no" />
+            <Clock_rate_index v="0" />
+            <Delay_after_transfer_index v="0" />
+            <CS_to_CLK_delay_index v="0" />
+            <CLK_to_CS_delay_index v="0" />
+          </group>
+          <group name="Attribute set 1">
+            <Width v="8 bits" />
+            <MSB_first v="yes" />
+            <Clock_polarity v="Low" />
+            <Clock_phase v="Capture on leading edge" />
+            <Parity v="None" />
+            <Chip_select_toggling v="no" />
+            <Clock_rate_index v="1" />
+            <Delay_after_transfer_index v="0" />
+            <CS_to_CLK_delay_index v="0" />
+            <CLK_to_CS_delay_index v="0" />
+          </group>
+        </list>
+        <Clock_rate init="10.48576 MHz" runtime_settings="list" mode_1="374.491429 kHz" />
+        <Delay_after_transfer v="0.095367 &amp;#181;s" />
+        <CS_to_CLK_delay v="0.095367 &amp;#181;s" />
+        <CLK_to_CS_delay v="0.095367 &amp;#181;s" />
+        <HW_input_buffer_size v="1" />
+        <HW_input_watermark v="1" />
+        <HW_output_buffer_size v="1" />
+        <HW_output_watermark v="1" />
+      </group>
+      <group name="Initialization">
+        <Initial_chip_select v="0" />
+        <Initial_attribute_set v="0" />
+        <Enabled_in_init__code v="yes" />
+        <group name="Event mask">
+          <OnBlockSent v="Enabled" />
+          <OnBlockReceived v="Enabled" />
+          <OnError v="Disabled" />
+        </group>
+      </group>
+    </Properties>
+    <Methods>
+      <Init v="generate code" />
+      <Deinit v="generate code" />
+      <Enable v="don&amp;apos;t generate code" />
+      <Disable v="don&amp;apos;t generate code" />
+      <SetEventMask v="don&amp;apos;t generate code" />
+      <GetEventMask v="don&amp;apos;t generate code" />
+      <SendBlock v="generate code" />
+      <ReceiveBlock v="generate code" />
+      <GetSentDataNum v="don&amp;apos;t generate code" />
+      <GetReceivedDataNum v="don&amp;apos;t generate code" />
+      <GetBlockSentStatus v="don&amp;apos;t generate code" />
+      <GetBlockReceivedStatus v="don&amp;apos;t generate code" />
+      <CancelBlockTransmission v="don&amp;apos;t generate code" />
+      <CancelBlockReception v="don&amp;apos;t generate code" />
+      <GetError v="don&amp;apos;t generate code" />
+      <SelectConfiguration v="generate code" />
+      <Main v="don&amp;apos;t generate code" />
+      <ForceReceiver v="don&amp;apos;t generate code" />
+      <GetStats v="don&amp;apos;t generate code" />
+      <ClearStats v="don&amp;apos;t generate code" />
+      <SetOperationMode v="don&amp;apos;t generate code" />
+      <GetDriverState v="don&amp;apos;t generate code" />
+      <ConnectPin v="don&amp;apos;t generate code" />
+    </Methods>
+    <Events>
+      <Event_module_name v="Events" />
+      <event name="OnBlockSent" v="generate code">
+        <Event_procedure_name v="SPI_SD_OnBlockSent" />
+      </event>
+      <event name="OnBlockReceived" v="generate code">
+        <Event_procedure_name v="SPI_SD_OnBlockReceived" />
+      </event>
+      <event name="OnError" v="don&amp;apos;t generate code" />
+    </Events>
+  </Bean>
+</PE_PROJECT_SETTINGS_DOCUMENTATION>
+

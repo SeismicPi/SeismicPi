@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+  Copyright : 2012 Freescale, Inc. All Rights Reserved.
+
+  This configuration file is a standard interchange file that's format is maintained
+  by Freescale, Inc. The configuration file is a derivative work
+  of the Processor Expert Software technology licensed for use by customers
+  as defined as SOFTWARE in the product's End User License Agreement. This file
+  and format are free to use and distribute for read-only purposes. You do not have
+  the right to create these files or modify this format or use for any purposes other
+  than interchange with the Processor Expert Software technology.
+
+  THIS SOFTWARE IS PROVIDED "AS IS".
+
+  NO WARRANTIES, WHETHER EXPRESS, IMPLIED OR STATUTORY, INCLUDING, BUT NOT
+  LIMITED TO, IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  PURPOSE APPLY TO THIS SOFTWARE. IN NO EVENT WILL FREESCALE BE LIABLE, WHETHER
+  IN CONTRACT, TORT, OR OTHERWISE, FOR ANY INCIDENTAL, SPECIAL, INDIRECT,
+  CONSEQUENTIAL OR PUNITIVE DAMAGES, INCLUDING, BUT NOT LIMITED TO, DAMAGES FOR
+  ANY LOSS OF USE, LOSS OF TIME, INCONVENIENCE, COMMERCIAL LOSS, OR LOST PROFITS,
+  SAVINGS, OR REVENUES TO THE FULL EXTENT SUCH MAY BE DISCLAIMED BY LAW.
+
+-->
+<export xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ProjectInfoDescription.xsd">
+  <PROCESSOR>
+    <DeviceID>MK22FN128xxx10</DeviceID>
+    <CoreNum>1</CoreNum>
+    <Cores>
+      <Core>
+        <CoreSet>Cortex-M4</CoreSet>
+      </Core>
+    </Cores>
+    <SRAMsize>24k</SRAMsize>
+    <FLASHsize>128k</FLASHsize>
+  </PROCESSOR>
+  <PATHS>
+    <LinkerCommandFile>C:\Users\Steve\Desktop\Firmware\Project_Settings\Linker_Files\ProcessorExpert.ld</LinkerCommandFile>
+    <IncludePaths>
+      <Path>C:\Users\Steve\Desktop\Firmware\Static_Code\System\</Path>
+      <Path>C:\Users\Steve\Desktop\Firmware\Static_Code\PDD\</Path>
+      <Path>C:\Users\Steve\Desktop\Firmware\Static_Code\IO_Map\</Path>
+      <Path>C:\Users\Steve\Desktop\Firmware\Static_Code\Peripherals\</Path>
+      <Path>C:\Freescale\KDS_3.0.0\eclipse\ProcessorExpert\lib\Kinetis\pdd\inc\</Path>
+      <Path>C:\Users\Steve\Desktop\Firmware\Sources\</Path>
+      <Path>C:\Users\Steve\Desktop\Firmware\Generated_Code\</Path>
+    </IncludePaths>
+    <SourceCodePaths>
+      <Path>C:\Users\Steve\Desktop\Firmware\Generated_Code\</Path>
+      <Path>C:\Users\Steve\Desktop\Firmware\Project_Settings\Startup_Code\</Path>
+      <Path>C:\Users\Steve\Desktop\Firmware\Sources\</Path>
+      <Path>C:\Users\Steve\Desktop\Firmware\Static_Code\Peripherals\</Path>
+      <Path>C:\Users\Steve\Desktop\Firmware\Static_Code\System\</Path>
+    </SourceCodePaths>
+  </PATHS>
+  <FILES>
+    <GeneratedCs>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\ADCCS.c</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\ADC_Accel.c</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\ADC_DR.c</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\ASerialLdd1.c</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\AdcLdd1.c</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\ButtonStartStop.c</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\CDC1.c</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\CS1.c</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\Cpu.c</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\DMA1.c</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\FLASH.c</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\IntFlashLdd1.c</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\LEDBlue.c</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\LEDGreen.c</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\LEDRed.c</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\PE_LDD.c</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\RTC.c</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\Rx1.c</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\SDCD.c</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\SDCS.c</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\SPI_ADC.c</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\SPI_SD.c</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\TU1.c</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\TimerMillis.c</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\Tx1.c</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\UART.c</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\USB1.c</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\pin_mux.c</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\usb_cdc.c</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\usb_cdc_pstn.c</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\usb_class.c</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\usb_dci_kinetis.c</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\usb_descriptor.c</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\usb_driver.c</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\usb_framework.c</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\wdt_kinetis.c</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Project_Settings\Startup_Code\startup.c</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Sources\Events.c</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Static_Code\Peripherals\USB0_Init.c</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Static_Code\System\CPU_Init.c</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Static_Code\System\Peripherals_Init.c</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Static_Code\System\Vectors.c</PathName>
+    </GeneratedCs>
+    <GeneratedHs>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\ADCCS.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\ADC_Accel.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\ADC_DR.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\ASerialLdd1.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\AdcLdd1.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\ButtonStartStop.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\CDC1.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\CPU_Config.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\CS1.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\Cpu.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\DMA1.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\FLASH.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\FSL_USB_Stack_Config.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\IO_Map.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\Init_Config.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\IntFlashLdd1.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\LEDBlue.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\LEDGreen.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\LEDRed.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\PE_Const.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\PE_Error.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\PE_LDD.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\PE_Types.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\RTC.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\Rx1.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\SDCD.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\SDCS.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\SPI_ADC.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\SPI_SD.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\TU1.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\TimerMillis.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\Tx1.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\UART.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\USB0.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\USB0_Config.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\USB1.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\USB_Config.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\Vectors_Config.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\derivative.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\hidef.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\pin_mux.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\types.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\usb_bdt_kinetis.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\usb_cdc.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\usb_cdc_pstn.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\usb_class.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\usb_dci_kinetis.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\usb_dciapi.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\usb_descriptor.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\usb_devapi.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\usb_framework.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\usb_user_config.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Generated_Code\wdt_kinetis.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Sources\Arduino\Arduino.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Sources\Arduino\Print.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Sources\Arduino\Printable.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Sources\Arduino\Stream.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Sources\Arduino\binary.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Sources\Command\Command.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Sources\Command\UART_Command.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Sources\Command\USB_Command.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Sources\Datalogging\DataLogging_Control.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Sources\Datalogging\Sensor_Control.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Sources\Datalogging\datafile.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Sources\Datalogging\dbuffer.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Sources\Events.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Sources\HAL\HAL.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Sources\ISRs\ISR_ADC.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Sources\ISRs\ISR_Accel.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Sources\ISRs\ISR_Button_StartStop.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Sources\ISRs\ISR_SD_CD.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Sources\ISRs\ISR_Timer_Millis.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Sources\RTC\Scheduling.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Sources\RTC\Time_Utils.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Sources\SD\SD.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Sources\SD\utility\FatStructs.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Sources\SD\utility\Sd2Card.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Sources\SD\utility\Sd2PinMap.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Sources\SD\utility\SdFat.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Sources\SD\utility\SdFatUtil.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Sources\SD\utility\SdFatmainpage.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Sources\SD\utility\SdInfo.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Sources\SDCard\FileFormat_CSV.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Sources\SDCard\FileFormat_Raw.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Sources\Settings\Settings_FileRead.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Sources\Settings\Settings_Persist.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Sources\main.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Static_Code\IO_Map\MK22F12810.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Static_Code\PDD\ADC_PDD.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Static_Code\PDD\CMP_PDD.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Static_Code\PDD\CRC_PDD.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Static_Code\PDD\DAC_PDD.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Static_Code\PDD\DMAMUX_PDD.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Static_Code\PDD\DMA_PDD.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Static_Code\PDD\EWM_PDD.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Static_Code\PDD\FMC_PDD.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Static_Code\PDD\FTFA_PDD.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Static_Code\PDD\FTM_PDD.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Static_Code\PDD\GPIO_PDD.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Static_Code\PDD\I2C_PDD.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Static_Code\PDD\LLWU_PDD.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Static_Code\PDD\LPTMR_PDD.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Static_Code\PDD\LPUART_PDD.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Static_Code\PDD\MCG_PDD.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Static_Code\PDD\MCM_PDD.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Static_Code\PDD\OSC_PDD.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Static_Code\PDD\PDB_PDD.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Static_Code\PDD\PDD_Types.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Static_Code\PDD\PIT_PDD.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Static_Code\PDD\PMC_PDD.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Static_Code\PDD\PORT_PDD.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Static_Code\PDD\RCM_PDD.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Static_Code\PDD\RTC_PDD.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Static_Code\PDD\SAI_PDD.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Static_Code\PDD\SCB_PDD.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Static_Code\PDD\SIM_PDD.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Static_Code\PDD\SMC_PDD.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Static_Code\PDD\SPI_PDD.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Static_Code\PDD\SysTick_PDD.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Static_Code\PDD\UART_PDD.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Static_Code\PDD\USB_PDD.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Static_Code\PDD\VREF_PDD.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Static_Code\PDD\WDOG_PDD.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Static_Code\Peripherals\USB0_Init.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Static_Code\System\CPU_Init.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Static_Code\System\PDD_Includes.h</PathName>
+      <PathName>C:\Users\Steve\Desktop\Firmware\Static_Code\System\Peripherals_Init.h</PathName>
+    </GeneratedHs>
+  </FILES>
+  <OPTIONS>
+  </OPTIONS>
+</export>
