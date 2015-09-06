@@ -1,5 +1,4 @@
-from __future__ import print_function
-import sys
+import sys, os
 
 def int32(b):
 	return (b[0]<<24) + (b[1]<<16) + (b[2]<<8) + b[3]
@@ -17,39 +16,52 @@ def charstr(b):
 		s += chr(c)
 	return s
 	
-def pr(str):
-	print(str, end="")
-	
-if len(sys.argv)<2:
-	print("Usage " + sys.argv[0] + " <input file>")
+if len(sys.argv)<3:
+	print("Usage " + sys.argv[0] + " <input file> <output file>")
 	sys.exit(1)
 
-with open(sys.argv[1], "rb") as f:
-	sens_enabled = ord(f.read(1))
-	num_24_enabled = 0
-	num_16_enabled = 0
-	for i in range(7):
-		if (sens_enabled & (1<<i))>0:
-			if i<4:
-				num_24_enabled += 1
-			else:
-				num_16_enabled += 1
-	sens_names = []
-	for i in range(num_24_enabled + num_16_enabled):
-		sens_names.append(charstr(map(ord, f.read(20))))
-	pr("Time")
-	lasttime = time = 0
-	for name in sens_names:
-		pr("," + name)
-	print()
-	while True:
-		lasttime = time
-		b = map(ord,f.read(4 + ((num_24_enabled*3) + (num_16_enabled*2))))
-		if len(b)<(4 + ((num_24_enabled*3) + (num_16_enabled*2))): break
-		time = int32(b[:4])
-		pr(time)
-		for i in range(num_24_enabled):
-			pr("," + str(int24(b[(i*3) + 4:(i*3)+7])))
-		for i in range(0, num_16_enabled):
-			pr("," + str(int16(b[(i*2) + 4 + (num_24_enabled*3) : (i*2) + 6 + (num_24_enabled*3)])))
-		print()
+inputsize = os.path.getsize(sys.argv[1])
+	
+with open(sys.argv[1], "rb") as i:
+	with open(sys.argv[2], "w") as o:
+		
+		sens_enabled = ord(i.read(1))
+		num_24_enabled = 0
+		num_16_enabled = 0
+		
+		for x in range(7):
+			if (sens_enabled & (1<<x))>0:
+				if x<4:
+					num_24_enabled += 1
+				else:
+					num_16_enabled += 1
+		
+		sens_names = []
+		
+		for x in range(num_24_enabled + num_16_enabled):
+			sens_names.append(charstr(bytearray(i.read(20))))
+		
+		o.write("Time")
+		for name in sens_names:
+			o.write(",\"" + name + "\"")
+		o.write("\n")
+		
+		recordsize = 4 + ((num_24_enabled*3) + (num_16_enabled*2))
+		numrecords = (inputsize - i.tell()) / recordsize
+		numread = 0
+		time = 0
+		while True:
+			b = bytearray(i.read(recordsize))
+			if len(b) < recordsize: break
+			time = int32(b[:4])
+			o.write(str(time))
+			for x in range(num_24_enabled):
+				o.write("," + str(int24(b[(x*3) + 4:(x*3)+7])))
+			for x in range(0, num_16_enabled):
+				o.write("," + str(int16(b[(x*2) + 4 + (num_24_enabled*3) : (x*2) + 6 + (num_24_enabled*3)])))
+			o.write("\n")
+			numread += 1
+			if numread % 1000 == 0:
+				print("Read %s of %s records [%.2f%%]" % (numread, numrecords, ((numread*100.0) / numrecords)))
+		
+		print("Done!")
