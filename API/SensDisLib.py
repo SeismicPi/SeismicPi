@@ -6,133 +6,128 @@ import time
 import seismicpi
 
 
-class SensorDisplay:
+INPUT_CHANNEL_1 = 1
+INPUT_CHANNEL_2 = 2
+INPUT_CHANNEL_3 = 3
+INPUT_CHANNEL_4 = 4
+ACCEL_X = 5
+ACCEL_Y = 6
+ACCEL_Z = 7
 
+SENSOR_DATA_BUFFER_LENGTH = 2000
+
+class SensorChannel:
+	def __init__(self, source, name=None):
+		assert source >=1 and source <= 7, "Sensor source is invalid!"
+		self.source = source
+		self.name = name or "Channel %d" % (source)
+		self.data = deque(maxlen=SENSOR_DATA_BUFFER_LENGTH)
+		self.transform_function = lambda x: x
+		self.plot = None
+		if source >= ACCEL_X:
+			self.set_range(0, 65536) # 16-bit accelerometer (unsigned)
+		else:
+			self.set_range(-8388608, 8388608) # 24-bit signed sensor input
+	
+	def _update_value(self, newVal):
+		self.raw_value = newVal
+		self.data.append(self.transform_function(newVal))
+		
+	def set_range(self, min_y, max_y):
+		self.min_y = min_y
+		self.max_y = max_y
+		if self.plot:
+			self.plot.setYRange(min_y, max_y)
+	
+	def set_transform_function(self, func):
+		self.transform_function = lambda x: func(x)
+	
+	def set_name(self, name):
+		self.name = name
+		
+	def get_raw_value(self):
+		return self.raw_value
+	
+	def get_value(self):
+		return self.transform_function(self.raw_value)
+
+
+class SensorDisplay:
+	
 	def __init__(self, comport, displayTime = 2):
+		global SENSOR_DATA_BUFFER_LENGTH
 		#input is the maxDisplayTime in seconds
 		self.numSensors = 0
 
 		self.board = seismicpi.SeismicPi(comport)
 
-		maxlength = displayTime * 1000
-		self.data = [deque(maxlen=maxlength),deque(maxlen=maxlength),deque(maxlen=maxlength),deque(maxlen=maxlength)]
-		self.qx = deque(maxlen=maxlength)
+		SENSOR_DATA_BUFFER_LENGTH = displayTime * 1000
+		self.qx = deque(maxlen=SENSOR_DATA_BUFFER_LENGTH)
 
 		self.app = QtGui.QApplication([])
-		self.win = pg.GraphicsWindow(title = "Sensor Readings")
+		self.win = pg.GraphicsWindow(title = "Sensor Plots")
 		self.win.resize(1000, 800)
-		self.win.setWindowTitle('Sensor Plots')
-
-		self.sensorSet = [False, False, False, False]
-		self.voltageFunction = [lambda x: x, lambda x: x, lambda x: x, lambda x: x]
+		
+		self.renderLock = False
+		
+		self.read_sensors = False
+		self.read_accel = False
+		
+		self.pen_colors = ['r', 'g', 'b', 'y']
+		
+		self.sensors = []
+		
+		self.paused = False
 
 		pg.setConfigOptions(antialias = False)
 
-	#Add Sensor One
-
-	def add_sensor_one(self, graphTitle = "Sensor One"):
-		if(not self.sensorSet[0]):
-			if self.numSensors == 2:
-				win.nextRow()
-
-			self.p1 = self.win.addPlot(title = graphTitle)
-			self.p1.setYRange(-8388608, 8388608) #default Y range
-			self.curve1 = self.p1.plot(pen = 'r')
-			self.numSensors += 1
-
-			self.sensorSet[0] = True
-
-	def add_sensor_two(self, graphTitle = "Sensor Two"):
-		if(not self.sensorSet[1]):
-			if self.numSensors == 2:
-				self.win.nextRow()
-
-			self.p2 = self.win.addPlot(title = graphTitle)
-			self.p2.setYRange(-8388608, 8388608)
-			self.curve2 = self.p2.plot(pen = 'g')
-			self.numSensors += 1
-
-			self.sensorSet[1] = True
-
-	def add_sensor_three(self, graphTitle = "Sensor Three"):
-		if(not self.sensorSet[2]):
-			if self.numSensors == 2:
-				self.win.nextRow()
-
-			self.p3 = self.win.addPlot(title = graphTitle)
-			self.p3.setYRange(-8388608, 8388608)
-			self.curve3 = self.p3.plot(pen = 'b')
-			self.numSensors += 1
-
-			self.sensorSet[2] = True
-
-	def add_sensor_four(self, graphTitle = "Sensor Four"):
-		if(not self.sensorSet[3]):
-			if self.numSensors == 2:
-				self.win.nextRow()
-
-			self.p4 = self.win.addPlot(title = graphTitle)
-			self.p4.setYRange(-8388608, 8388608)
-			self.curve4 = self.p4.plot(pen = 'y')
-			self.numSensors += 1
-
-			self.sensorSet[3] = True
-
-	def setYRange_sensor_one(self, low, high):
-		assert(low <= high), "The lower bound must be lower than the upper bound!"
-		self.p1.setYRange(low, high);
-
-	def setYRange_sensor_two(self, low, high):
-		assert(low <= high), "The lower bound must be lower than the upper bound!"
-		self.p2.setYRange(low, high);
-
-	def setYRange_sensor_three(self, low, high):
-		assert(low <= high), "The lower bound must be lower than the upper bound!"
-		self.p3.setYRange(low, high);
-
-	def setYRange_sensor_four(self, low, high):
-		assert(low <= high), "The lower bound must be lower than the upper bound!"
-		self.p4.setYRange(low, high);
-
-
-	def setVoltageFunction_sensor(self, index, newFunc):
-		self.voltageFunction[index-1] = lambda x: newFunc(x)
-
-	def numSensors():
-		return self.numSensors
-
-	def get_raw_sensor(self, index):
-		index -= 1
-		assert(self.sensorSet[i]), "This sensor has not been set yet!"
-		return self.board.get_sensor_values()[index]
+	def pause(self):
+		self.paused = True
 	
-	def get_sensor(self, index):
-		index -= 1
-		return self.voltageFunction[index](self.board.get_sensor_values()[index])
-
+	def resume(self):
+		self.paused = False
+	
+	def add(self, sensor):
+		assert sensor, "Sensor is None!"
+		if self.numSensors == 2:
+			self.win.nextRow()
+		
+		plot = self.win.addPlot(title = sensor.name)
+		plot.setYRange(sensor.min_y, sensor.max_y)
+		self.sensors.append(sensor)
+		sensor.plot = plot
+		sensor.curve = plot.plot(pen=self.pen_colors[self.numSensors])
+		if sensor.source >= ACCEL_X:
+			self.read_accel = True
+		else:
+			self.read_sensors = True
+		
+		self.numSensors += 1
+	
 	def update(self):
-		if(self.sensorSet[0]):
-			self.curve1.setData(self.qx,self.data[0])
-		if(self.sensorSet[1]):
-			self.curve2.setData(self.qx,self.data[1])
-		if(self.sensorSet[2]):
-			self.curve3.setData(self.qx,self.data[2])
-		if(self.sensorSet[3]):
-			self.curve4.setData(self.qx,self.data[3])
+		for sensor in self.sensors:
+			if not self.renderLock:
+				sensor.curve.setData(self.qx, sensor.data)
 
 	def getNext(self):
 		ptr = 0
 		while True:
 			time.sleep(.0001)
-			values = self.board.get_sensor_values()
-			#values = self.board.get_accel_values()
-			for i in range(0, 4):
-			#for i in range(0, 3):
-				if(self.sensorSet[i]):
-					toAdd = values[i]
-					self.data[i].append(self.voltageFunction[i](toAdd))
-			self.qx.append(ptr)
-			ptr+=1
+			if not self.paused:
+				if self.read_sensors:
+					self.sensor_values = self.board.get_sensor_values()
+				if self.read_accel:
+					self.accel_values = self.board.get_accel_values()
+				self.renderLock = True
+				for sensor in self.sensors:
+					if sensor.source >= ACCEL_X:
+						val = self.accel_values[sensor.source - ACCEL_X]
+					else:
+						val = self.sensor_values[sensor.source - INPUT_CHANNEL_1]
+					sensor._update_value(val)
+				self.qx.append(ptr)
+				self.renderLock = False
+				ptr+=1
 
 	def runPlot(self):
 		self.input_Thread = threading.Thread(target = self.getNext)
