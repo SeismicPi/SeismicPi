@@ -1,4 +1,3 @@
-import Filetype as f
 import time
 
 class UARTComm:
@@ -19,8 +18,6 @@ class SeismicPi:
 
 		self.cardInitialized = False
 		self.recording = False
-
-		self.fileType = f.Filetype()
 
 		self.comm = UARTComm(cport) # for now only serial is supported
 
@@ -85,13 +82,11 @@ class SeismicPi:
 
 	def set_Raw(self):
 		assert(not self.recording), "Can't change while recording!"
-		fileType = f.Binary(self.comm)
-		fileType.indicate()
+		self.comm.send([0x08])
 		
 	def set_CSV(self):
 		assert(not self.recording), "Can't change while recording!"
-		fileType = f.CSV(self.comm)
-		fileType.indicate()
+		self.comm.send([0x09])
 		
 	def get_firmware_string(self):
 		self.send([0x11])

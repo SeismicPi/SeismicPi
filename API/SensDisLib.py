@@ -3,7 +3,6 @@ import pyqtgraph as pg
 from collections import deque
 import threading
 import time
-import Sensor
 import seismicpi
 
 
